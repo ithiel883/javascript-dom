@@ -1,36 +1,60 @@
 import '../assets/css/style.css';
 
-const app = document.getElementById('app');
+// const app = document.getElementById('app');
 
-function createInputDOM({label, type = 'text'}) {
-    const labelEl = document.createElement('label')
-    const inputEl = document.createElement('input')
+const data = ['Earth', '  fire', 'Water', 'Air']
 
-    inputEl.type = type;
-    labelEl.innerText = label 
+const fragment =  document.createDocumentFragment()
 
-    labelEl.append(inputEl)
+data.forEach(name => {
+    const li =  document.createElement('li')
+    li.innerText = name
+    fragment.append(li)
+})
 
-    return labelEl
-}
-const inputFromDOM = createInputDOM({label: 'Name'})
+app.append(fragment)
 
-console.log(inputFromDOM.querySelector('input'))
 
-app.append(inputFromDOM)
 
-//Using string templates
-function createInputTemplate({label, type = 'text'}){
-    return `
-    <label>
-    ${label}
-<input type="${type}">
-    </label>
-    `;
-}
 
-const inputFromTemplate = createInputTemplate({label: 'Email', type: 'email'})
-app.innerHTML += inputFromTemplate
+
+
+
+
+
+
+
+
+
+// function createInputDOM({label, type = 'text'}) {
+//     const labelEl = document.createElement('label')
+//     const inputEl = document.createElement('input')
+
+//     inputEl.type = type;
+//     labelEl.innerText = label 
+
+//     labelEl.append(inputEl)
+
+//     return labelEl
+// }
+// const inputFromDOM = createInputDOM({label: 'Name'})
+
+// console.log(inputFromDOM.querySelector('input'))
+
+// app.append(inputFromDOM)
+
+// //Using string templates
+// function createInputTemplate({label, type = 'text'}){
+//     return `
+//     <label>
+//     ${label}
+// <input type="${type}">
+//     </label>
+//     `;
+// }
+
+// const inputFromTemplate = createInputTemplate({label: 'Email', type: 'email'})
+// app.innerHTML += inputFromTemplate
 // app.innerText = 'some text here'
 // const div = document.createElement('div')
 // const text = document.createTextNode('DOM!')
