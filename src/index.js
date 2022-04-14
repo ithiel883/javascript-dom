@@ -2,7 +2,26 @@ import '../assets/css/style.css';
 
 const app = document.getElementById('app');
 
-app.innerText = 'some text here'
+function createInputDOM({label, type = 'text'}) {
+    const labelEl = document.createElement('label')
+    const inputEl = document.createElement('input')
+
+    inputEl.type = type;
+    labelEl.innerText = label 
+
+    labelEl.append(inputEl)
+
+    return labelEl
+}
+const inputFromDOM = createInputDOM({label: 'Name'})
+
+console.log(inputFromDOM.querySelector('input'))
+
+app.append(inputFromDOM)
+
+//Using string templates
+
+// app.innerText = 'some text here'
 // const div = document.createElement('div')
 // const text = document.createTextNode('DOM!')
 // const comment = document.createComment('No comment')
