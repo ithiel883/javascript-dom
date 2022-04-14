@@ -2,16 +2,16 @@ import '../assets/css/style.css';
 
 const app = document.getElementById('app');
 
+app.innerText = 'some text here'
+// const div = document.createElement('div')
+// const text = document.createTextNode('DOM!')
+// const comment = document.createComment('No comment')
 
-const div = document.createElement('div')
-const text = document.createTextNode('DOM!')
-const comment = document.createComment('No comment')
+// div.append(comment)
+// app.append(div)
+// app.append(text)
 
-div.append(comment)
-div.append(text)
-app.append(div)
-
-console.log(app, div)
+// console.log(app, div)
 
 
 // app.innerHTML = `<h1>Javascript DOM </h1>`;
