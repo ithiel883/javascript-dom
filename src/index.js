@@ -4,15 +4,46 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-`
-//removing nodes
-const div = document.createElement('div')
-div.innerText = "I am a message!"
+<ul id="list"></ul>
+`;
 
-app.append(div)
+const data = ['Earth', 'Fire', 'Water']
 
+const fragment = document.createDocumentFragment()
+
+data.forEach(item => {
+    const li = document.createElement('li')
+    li.className = 'list-item';
+    li.innerText = item;
+    fragment.append(li)
+})
+
+//getElementById: HTMLElement
+const ulFromId = document.getElementById('list')
+console.log(ulFromId)
+ulFromId.append(fragment)
+
+//getElementByClassName: HTMLCollection
+const listItems4fromClass = ulFromId.getElementsByClassName('list-item')
+console.log(listItems4fromClass)
+
+//getEllementByTagName
+const list4romTag = ulFromId.getElementsByTagName('li')
+console.log(list4romTag)
+
+//demonstrate live collection
+const newListItem = document.createElement('li')
+newListItem.className = 'list-item'
+newListItem.innerText = 'Air'
+ulFromId.append(newListItem)
+// //removing nodes
+// const div = document.createElement('div')
+// div.innerText = "I am a message!"
+
+// app.append(div)
+
+// // setTimeout(() => div.remove(), 2500)
 // setTimeout(() => div.remove(), 2500)
-setTimeout(() => div.remove(), 2500)
 
 
 //cloning elements
