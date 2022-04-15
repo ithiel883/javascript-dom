@@ -4,33 +4,51 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<ul id="list"></ul>
+<ul id="list">
+<li>Earth</li>
+<li>Fire</li>
+<li>Water</li>
+<li>Air</li>
+</ul>
 `;
 
-const data = ['Earth', 'Fire', 'Water']
+const listItems = document.querySelectorAll('#list li')
+console.log(listItems)
 
-const fragment = document.createDocumentFragment()
+for(let i = 0; i < listItems.length; i++){
+    console.log(listItems[i])
+}
+for(const item of listItems){
+    console.log(item)
+}
 
-data.forEach(item => {
-    const li = document.createElement('li')
-    li.className = 'list-item';
-    li.innerText = item;
-    fragment.append(li)
-})
+[...listItems].forEach(item  => console.log(item))
 
-const ulFromQuerySelector = document.querySelector('ul')
-console.log(ulFromQuerySelector)
+Array.from(listItems).forEach(item => console.log(item))
+// const data = ['Earth', 'Fire', 'Water']
 
-ulFromQuerySelector.append(fragment)
+// const fragment = document.createDocumentFragment()
 
-const listItemsFromQSA = ulFromQuerySelector.querySelectorAll('.list-item')
-console.log(listItemsFromQSA)
+// data.forEach(item => {
+//     const li = document.createElement('li')
+//     li.className = 'list-item';
+//     li.innerText = item;
+//     fragment.append(li)
+// })
+
+// const ulFromQuerySelector = document.querySelector('ul')
+// console.log(ulFromQuerySelector)
+
+// ulFromQuerySelector.append(fragment)
+
+// const listItemsFromQSA = ulFromQuerySelector.querySelectorAll('.list-item')
+// console.log(listItemsFromQSA)
 
 
-const newListItem = document.createElement('li')
-newListItem.className = 'list-item';
-newListItem.innerText = 'Air';
-ulFromQuerySelector.append(newListItem)
+// const newListItem = document.createElement('li')
+// newListItem.className = 'list-item';
+// newListItem.innerText = 'Air';
+// ulFromQuerySelector.append(newListItem)
 // //getElementById: HTMLElement
 // const ulFromId = document.getElementById('list')
 // console.log(ulFromId)
