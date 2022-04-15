@@ -4,15 +4,25 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<ul>
-<li>1</li>
-</ul>
+<div>Replace me!</div>
 
 `
-const ul =  app.querySelector('ul');
-const li = document.createElement('li')
-li.innerText = 'X'
-ul.insertAdjacentElement('beforebegin', li)
+
+const div = app.querySelector('div')
+const newDiv = document.createElement('div')
+newDiv.innerText = 'I have been replaced!'
+ 
+
+setTimeout(() => {
+    div.replaceWith(newDiv)
+}, 3000)
+
+// const ul =  app.querySelector('ul');
+// const li = document.createElement('li')
+// li.innerText = 'X'
+// ul.insertAdjacentElement('beforebegin', li)
+
+
 // const div = document.createElement('div')
 // const span = document.createElement("span")
 // const p = document.createElement('p')
