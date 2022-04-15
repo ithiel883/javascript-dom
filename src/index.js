@@ -1,18 +1,42 @@
 import '../assets/css/style.css';
 
-// const app = document.getElementById('app');
+const app = document.getElementById('app');
 
-const data = ['Earth', '  fire', 'Water', 'Air']
+app.innerHTML = `
+<h1>Javascript DOM</h1>
+<ul>
+<li>1</li>
+</ul>
 
-const fragment =  document.createDocumentFragment()
+`
+const ul =  app.querySelector('ul');
+const li = document.createElement('li')
+li.innerText = 'X'
+ul.insertAdjacentElement('beforebegin', li)
+// const div = document.createElement('div')
+// const span = document.createElement("span")
+// const p = document.createElement('p')
+// const i = document.createElement('i')
 
-data.forEach(name => {
-    const li =  document.createElement('li')
-    li.innerText = name
-    fragment.append(li)
-})
+// app.append(div)
 
-app.append(fragment)
+// div.append(p)
+// div.prepend(span)
+// p.before(i)
+
+
+// console.log(div)
+// const data = ['Earth', '  fire', 'Water', 'Air']
+
+// const fragment =  document.createDocumentFragment()
+
+// data.forEach(name => {
+//     const li =  document.createElement('li')
+//     li.innerText = name
+//     fragment.append(li)
+// })
+
+// app.append(fragment)
 
 
 
