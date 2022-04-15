@@ -18,24 +18,37 @@ data.forEach(item => {
     fragment.append(li)
 })
 
-//getElementById: HTMLElement
-const ulFromId = document.getElementById('list')
-console.log(ulFromId)
-ulFromId.append(fragment)
+const ulFromQuerySelector = document.querySelector('ul')
+console.log(ulFromQuerySelector)
 
-//getElementByClassName: HTMLCollection
-const listItems4fromClass = ulFromId.getElementsByClassName('list-item')
-console.log(listItems4fromClass)
+ulFromQuerySelector.append(fragment)
 
-//getEllementByTagName
-const list4romTag = ulFromId.getElementsByTagName('li')
-console.log(list4romTag)
+const listItemsFromQSA = ulFromQuerySelector.querySelectorAll('.list-item')
+console.log(listItemsFromQSA)
 
-//demonstrate live collection
+
 const newListItem = document.createElement('li')
-newListItem.className = 'list-item'
-newListItem.innerText = 'Air'
-ulFromId.append(newListItem)
+newListItem.className = 'list-item';
+newListItem.innerText = 'Air';
+ulFromQuerySelector.append(newListItem)
+// //getElementById: HTMLElement
+// const ulFromId = document.getElementById('list')
+// console.log(ulFromId)
+// ulFromId.append(fragment)
+
+// //getElementByClassName: HTMLCollection
+// const listItems4fromClass = ulFromId.getElementsByClassName('list-item')
+// console.log(listItems4fromClass)
+
+// //getEllementByTagName
+// const list4romTag = ulFromId.getElementsByTagName('li')
+// console.log(list4romTag)
+
+// //demonstrate live collection
+// const newListItem = document.createElement('li')
+// newListItem.className = 'list-item'
+// newListItem.innerText = 'Air'
+// ulFromId.append(newListItem)
 // //removing nodes
 // const div = document.createElement('div')
 // div.innerText = "I am a message!"
