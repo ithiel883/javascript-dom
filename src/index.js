@@ -5,22 +5,31 @@ const app = document.getElementById('app');
 app.innerHTML = `
 <h1>Javascript DOM</h1>
 `
-
-//cloning elements
+//removing nodes
 const div = document.createElement('div')
-const span = document.createElement('span')
-span.innerText = "Can you clone me"
-div.append(span)
+div.innerText = "I am a message!"
+
 app.append(div)
 
-const clone = div.cloneNode()
-console.log(clone)
+// setTimeout(() => div.remove(), 2500)
+setTimeout(() => div.remove(), 2500)
 
-//clone all elements and subtrees
-const newClone = div.cloneNode(true)
-console.log(newClone)
 
-app.append(newClone)
+//cloning elements
+// const div = document.createElement('div')
+// const span = document.createElement('span')
+// span.innerText = "Can you clone me"
+// div.append(span)
+// app.append(div)
+
+// const clone = div.cloneNode()
+// console.log(clone)
+
+// //clone all elements and subtrees
+// const newClone = div.cloneNode(true)
+// console.log(newClone)
+
+// app.append(newClone)
 //Replacing Node
 
 // const div = app.querySelector('div')
