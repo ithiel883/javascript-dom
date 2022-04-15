@@ -4,18 +4,34 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<div>Replace me!</div>
-
 `
 
-const div = app.querySelector('div')
-const newDiv = document.createElement('div')
-newDiv.innerText = 'I have been replaced!'
+//cloning elements
+const div = document.createElement('div')
+const span = document.createElement('span')
+span.innerText = "Can you clone me"
+div.append(span)
+app.append(div)
+
+const clone = div.cloneNode()
+console.log(clone)
+
+//clone all elements and subtrees
+const newClone = div.cloneNode(true)
+console.log(newClone)
+
+app.append(newClone)
+//Replacing Node
+
+// const div = app.querySelector('div')
+// const newDiv = document.createElement('div')
+// newDiv.innerText = 'I have been replaced!'
  
 
-setTimeout(() => {
-    div.replaceWith(newDiv)
-}, 3000)
+// setTimeout(() => {
+//     div.replaceWith(newDiv)
+// }, 3000)
+
 
 // const ul =  app.querySelector('ul');
 // const li = document.createElement('li')
