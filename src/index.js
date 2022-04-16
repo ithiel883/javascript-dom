@@ -4,25 +4,32 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<ul id="list">
-<li>Earth</li>
-<li>Fire</li>
-<li>Water</li>
-<li>Air</li>
-</ul>
-`;
-const list = document.querySelector('#list')
-const selectedIndex = 2;
-//querySelectorAll
-const queryChildren = list.querySelectorAll('li')
-console.log(queryChildren[selectedIndex])
+<div class="item"></div>
+`
+const item = document.querySelector('.item')
+console.log(item.parentNode)
+console.log(item.parentElement)
 
-console.log(list.children[selectedIndex])
+console.log(item.closest('#app'))
+console.log(item.closest('body'))
 
-console. log(list.childNodes[selectedIndex])
+//looking at parent nodes
 
-//first and last
-console.log(list.firstChild, list.firstElementChild)
+
+//looking at child nodes & elements
+
+// const list = document.querySelector('#list')
+// const selectedIndex = 2;
+// //querySelectorAll
+// const queryChildren = list.querySelectorAll('li')
+// console.log(queryChildren[selectedIndex])
+
+// console.log(list.children[selectedIndex])
+
+// console. log(list.childNodes[selectedIndex])
+
+// //first and last
+// console.log(list.firstChild, list.firstElementChild)
 
 // const listItems = document.querySelectorAll('#list li')
 // console.log(listItems)
