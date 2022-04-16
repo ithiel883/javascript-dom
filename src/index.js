@@ -11,20 +11,32 @@ app.innerHTML = `
 <li>Air</li>
 </ul>
 `;
+const list = document.querySelector('#list')
+const selectedIndex = 2;
+//querySelectorAll
+const queryChildren = list.querySelectorAll('li')
+console.log(queryChildren[selectedIndex])
 
-const listItems = document.querySelectorAll('#list li')
-console.log(listItems)
+console.log(list.children[selectedIndex])
 
-for(let i = 0; i < listItems.length; i++){
-    console.log(listItems[i])
-}
-for(const item of listItems){
-    console.log(item)
-}
+console. log(list.childNodes[selectedIndex])
 
-[...listItems].forEach(item  => console.log(item))
+//first and last
+console.log(list.firstChild, list.firstElementChild)
 
-Array.from(listItems).forEach(item => console.log(item))
+// const listItems = document.querySelectorAll('#list li')
+// console.log(listItems)
+
+// for(let i = 0; i < listItems.length; i++){
+//     console.log(listItems[i])
+// }
+// for(const item of listItems){
+//     console.log(item)
+// }
+
+// [...listItems].forEach(item  => console.log(item))
+
+// Array.from(listItems).forEach(item => console.log(item))
 // const data = ['Earth', 'Fire', 'Water']
 
 // const fragment = document.createDocumentFragment()
