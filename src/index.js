@@ -4,14 +4,27 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<div class="item"></div>
+<ul id="list">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+</ul>
 `
-const item = document.querySelector('.item')
-console.log(item.parentNode)
-console.log(item.parentElement)
+const listItem = document.querySelector('#list li')
 
-console.log(item.closest('#app'))
-console.log(item.closest('body'))
+console.log(listItem.nextSibling)
+console.log(listItem.nextElementSibling)
+console.log(listItem.previousSibling)
+
+
+
+// const item = document.querySelector('.item')
+// console.log(item.parentNode)
+// console.log(item.parentElement)
+
+// console.log(item.closest('#app'))
+// console.log(item.closest('body'))
 
 //looking at parent nodes
 
