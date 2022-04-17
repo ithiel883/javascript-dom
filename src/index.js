@@ -4,18 +4,19 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<ul id="list">
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-</ul>
+<input type="text" value="0">
 `
-const listItem = document.querySelector('#list li')
 
-console.log(listItem.nextSibling)
-console.log(listItem.nextElementSibling)
-console.log(listItem.previousSibling)
+const input =  document.querySelector('input')
+input.value = 2;
+input.setAttribute('value', 4)
+console.log(parseInt((input.value), 10))
+console.dir(input)
+// const listItem = document.querySelector('#list li')
+
+// console.log(listItem.nextSibling)
+// console.log(listItem.nextElementSibling)
+// console.log(listItem.previousSibling)
 
 
 
