@@ -5,22 +5,26 @@ const app = document.getElementById('app');
 app.innerHTML = `
 <h1>Javascript DOM</h1>
 <button type="button">
-    Close Me
-    </button>
+Click Me!
+</button>
 `
-const button = document.querySelector('button');
-console.log(button)
+
+const button = document.querySelector('button')
+button.style.cssText = 'padding: 25px; margin: 10px 0; font-size: 20px;'
+
+// const button = document.querySelector('button');
+// console.log(button)
 
 
-//SET
-button.setAttribute('aria-label', 'Close this modal')
+// //SET
+// button.setAttribute('aria-label', 'Close this modal')
 
-//GET
-console.log(button.getAttribute('aria-label'))
+// //GET
+// console.log(button.getAttribute('aria-label'))
 
-//.attributes
+// //.attributes
 
-console.log(button.attributes)
+// console.log(button.attributes)
 // const input =  document.querySelector('input')
 // input.value = 2;
 // input.setAttribute('value', 4)
