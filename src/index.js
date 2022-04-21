@@ -4,23 +4,40 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<button type="button" class="one two">
-
+<button type="button">
+Click Me
 </button>
 `
-
-
 const button = document.querySelector('button')
 
-//old way:set
-button.className += ' three'
-//add
-button.classList.add('four')
-//toggle
-button.classList.toggle('five')
-setTimeout(() => button.classList.toggle('five'), 2500)
-//replace
-button.classList.replace('two', 'six')
+//Avoid, doesn't allow multiple events
+// button.onclick = function(){
+//     console.log('1')
+// }
+
+
+function handleClick(event){
+console.log(this, event.target)
+}
+
+button.addEventListener('click', handleClick)
+
+button.addEventListener('dblclick', () => {
+    console.log('Double-clicked')
+})
+
+
+// const button = document.querySelector('button')
+
+// //old way:set
+// button.className += ' three'
+// //add
+// button.classList.add('four')
+// //toggle
+// button.classList.toggle('five')
+// setTimeout(() => button.classList.toggle('five'), 2500)
+// //replace
+// button.classList.replace('two', 'six')
 // const button = document.querySelector('button')
 // button.style.cssText = 'padding: 25px; margin: 10px 0; font-size: 20px;'
 
