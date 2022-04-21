@@ -9,22 +9,28 @@ Click Me
 </button>
 `
 const button = document.querySelector('button')
-
-//Avoid, doesn't allow multiple events
-// button.onclick = function(){
-//     console.log('1')
-// }
-
-
 function handleClick(event){
-console.log(this, event.target)
+    console.log(event.target)
 }
 
 button.addEventListener('click', handleClick)
 
-button.addEventListener('dblclick', () => {
-    console.log('Double-clicked')
-})
+button.removeEventListener('click', handleClick)
+// //Avoid, doesn't allow multiple events
+// // button.onclick = function(){
+// //     console.log('1')
+// // }
+
+
+// function handleClick(event){
+// console.log(this, event.target)
+// }
+
+// button.addEventListener('click', handleClick)
+
+// button.addEventListener('dblclick', () => {
+//     console.log('Double-clicked')
+// })
 
 
 // const button = document.querySelector('button')
