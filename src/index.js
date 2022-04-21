@@ -4,14 +4,28 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<input type="text" value="0">
+<button type="button">
+    Close Me
+    </button>
 `
+const button = document.querySelector('button');
+console.log(button)
 
-const input =  document.querySelector('input')
-input.value = 2;
-input.setAttribute('value', 4)
-console.log(parseInt((input.value), 10))
-console.dir(input)
+
+//SET
+button.setAttribute('aria-label', 'Close this modal')
+
+//GET
+console.log(button.getAttribute('aria-label'))
+
+//.attributes
+
+console.log(button.attributes)
+// const input =  document.querySelector('input')
+// input.value = 2;
+// input.setAttribute('value', 4)
+// console.log(parseInt((input.value), 10))
+// console.dir(input)
 // const listItem = document.querySelector('#list li')
 
 // console.log(listItem.nextSibling)
