@@ -4,13 +4,25 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<button type="button">
-Click Me!
+<button type="button" class="one two">
+
 </button>
 `
 
+
 const button = document.querySelector('button')
-button.style.cssText = 'padding: 25px; margin: 10px 0; font-size: 20px;'
+
+//old way:set
+button.className += ' three'
+//add
+button.classList.add('four')
+//toggle
+button.classList.toggle('five')
+setTimeout(() => button.classList.toggle('five'), 2500)
+//replace
+button.classList.replace('two', 'six')
+// const button = document.querySelector('button')
+// button.style.cssText = 'padding: 25px; margin: 10px 0; font-size: 20px;'
 
 // const button = document.querySelector('button');
 // console.log(button)
