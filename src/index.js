@@ -4,32 +4,56 @@ const app = document.getElementById("app");
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<div class="one">
-<div class="two">
-<button type="button" class="three">
-Click Me
-</button>
-</div>
-</div>
+<form>
+<label>
+Sign-up Email
+<input type="email">
+</label>
+<label>
+I agree to the terms
+<input type="checkbox">
+</label>
+</form>
 
 `;
 
-const one = document.querySelector('.one')
-const two = document.querySelector('.two')
- const three = document.querySelector('.three')
+const form = document.querySelector('form')
+const email = form.querySelector('input[type="email"]')
+const checkbox = form.querySelector('input[type="checkbox"]')
 
-function handleClick(event){
-    event.stopPropagation();
-event.stopImmediatePropagation()
-    console.log(event.target)
+function handleSubmit(event){
+    if(!checkbox.checked){
+        event.preventDefault();
+        console.log('I am not submitting')
+        console.log(event.defaultPrevented)
+        return 
+    }
+    console.log('Submitted', email.value)
 }
 
 
-one.addEventListener('click', handleClick)
-two.addEventListener('click', handleClick)
-three.addEventListener('click', handleClick)
+form.addEventListener('submit', handleSubmit)
+//example to demonstrate no checking
+// checkbox.addEventListener('click', event => {
+//     event.preventDefault()
+// })
 
-three.addEventListener('click', event => console.log(event.target), {capture: true})
+// const one = document.querySelector('.one')
+// const two = document.querySelector('.two')
+//  const three = document.querySelector('.three')
+
+// function handleClick(event){
+//     event.stopPropagation();
+// event.stopImmediatePropagation()
+//     console.log(event.target)
+// }
+
+
+// one.addEventListener('click', handleClick)
+// two.addEventListener('click', handleClick)
+// three.addEventListener('click', handleClick)
+
+// three.addEventListener('click', event => console.log(event.target), {capture: true})
 
 
 // const button = document.querySelector('button')
