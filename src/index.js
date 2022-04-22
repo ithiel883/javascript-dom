@@ -9,13 +9,17 @@ Click Me
 </button>
 `
 const button = document.querySelector('button')
-function handleClick(event){
-    console.log(event.target)
-}
 
-button.addEventListener('click', handleClick)
+button.addEventListener('dblclick', () => {
+    console.log('double click')
+}, {once: true})
+// function handleClick(event){
+//     console.log(event.target)
+// }
 
-button.removeEventListener('click', handleClick)
+// button.addEventListener('click', handleClick)
+
+// button.removeEventListener('click', handleClick)
 // //Avoid, doesn't allow multiple events
 // // button.onclick = function(){
 // //     console.log('1')
