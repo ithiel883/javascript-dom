@@ -1,18 +1,42 @@
-import '../assets/css/style.css';
+import "../assets/css/style.css";
 
-const app = document.getElementById('app');
+const app = document.getElementById("app");
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<button type="button">
+<div class="one">
+<div class="two">
+<button type="button" class="three">
 Click Me
 </button>
-`
-const button = document.querySelector('button')
+</div>
+</div>
 
-button.addEventListener('dblclick', () => {
-    console.log('double click')
-}, {once: true})
+`;
+
+const one = document.querySelector('.one')
+const two = document.querySelector('.two')
+ const three = document.querySelector('.three')
+
+function handleClick(event){
+    event.stopPropagation();
+event.stopImmediatePropagation()
+    console.log(event.target)
+}
+
+
+one.addEventListener('click', handleClick)
+two.addEventListener('click', handleClick)
+three.addEventListener('click', handleClick)
+
+three.addEventListener('click', event => console.log(event.target), {capture: true})
+
+
+// const button = document.querySelector('button')
+
+// button.addEventListener('dblclick', () => {
+//     console.log('double click')
+// }, {once: true})
 // function handleClick(event){
 //     console.log(event.target)
 // }
@@ -25,7 +49,6 @@ button.addEventListener('dblclick', () => {
 // //     console.log('1')
 // // }
 
-
 // function handleClick(event){
 // console.log(this, event.target)
 // }
@@ -35,7 +58,6 @@ button.addEventListener('dblclick', () => {
 // button.addEventListener('dblclick', () => {
 //     console.log('Double-clicked')
 // })
-
 
 // const button = document.querySelector('button')
 
@@ -53,7 +75,6 @@ button.addEventListener('dblclick', () => {
 
 // const button = document.querySelector('button');
 // console.log(button)
-
 
 // //SET
 // button.setAttribute('aria-label', 'Close this modal')
@@ -75,8 +96,6 @@ button.addEventListener('dblclick', () => {
 // console.log(listItem.nextElementSibling)
 // console.log(listItem.previousSibling)
 
-
-
 // const item = document.querySelector('.item')
 // console.log(item.parentNode)
 // console.log(item.parentElement)
@@ -85,7 +104,6 @@ button.addEventListener('dblclick', () => {
 // console.log(item.closest('body'))
 
 //looking at parent nodes
-
 
 //looking at child nodes & elements
 
@@ -134,7 +152,6 @@ button.addEventListener('dblclick', () => {
 // const listItemsFromQSA = ulFromQuerySelector.querySelectorAll('.list-item')
 // console.log(listItemsFromQSA)
 
-
 // const newListItem = document.createElement('li')
 // newListItem.className = 'list-item';
 // newListItem.innerText = 'Air';
@@ -166,7 +183,6 @@ button.addEventListener('dblclick', () => {
 // // setTimeout(() => div.remove(), 2500)
 // setTimeout(() => div.remove(), 2500)
 
-
 //cloning elements
 // const div = document.createElement('div')
 // const span = document.createElement('span')
@@ -187,18 +203,15 @@ button.addEventListener('dblclick', () => {
 // const div = app.querySelector('div')
 // const newDiv = document.createElement('div')
 // newDiv.innerText = 'I have been replaced!'
- 
 
 // setTimeout(() => {
 //     div.replaceWith(newDiv)
 // }, 3000)
 
-
 // const ul =  app.querySelector('ul');
 // const li = document.createElement('li')
 // li.innerText = 'X'
 // ul.insertAdjacentElement('beforebegin', li)
-
 
 // const div = document.createElement('div')
 // const span = document.createElement("span")
@@ -210,7 +223,6 @@ button.addEventListener('dblclick', () => {
 // div.append(p)
 // div.prepend(span)
 // p.before(i)
-
 
 // console.log(div)
 // const data = ['Earth', '  fire', 'Water', 'Air']
@@ -225,24 +237,12 @@ button.addEventListener('dblclick', () => {
 
 // app.append(fragment)
 
-
-
-
-
-
-
-
-
-
-
-
-
 // function createInputDOM({label, type = 'text'}) {
 //     const labelEl = document.createElement('label')
 //     const inputEl = document.createElement('input')
 
 //     inputEl.type = type;
-//     labelEl.innerText = label 
+//     labelEl.innerText = label
 
 //     labelEl.append(inputEl)
 
@@ -277,7 +277,6 @@ button.addEventListener('dblclick', () => {
 
 // console.log(app, div)
 
-
 // app.innerHTML = `<h1>Javascript DOM </h1>`;
 // //html
 
@@ -295,7 +294,6 @@ button.addEventListener('dblclick', () => {
 // console.log(document.body instanceof Element)
 // console.log(document.body instanceof Node)
 // console.log(document.body instanceof EventTarget)
-
 
 // // Node types
 // /*
