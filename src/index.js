@@ -23,7 +23,7 @@ Clear completed
 
 `;
 //state 
-let todos = []
+let todos = JSON.parse(localStorage.getItem('todos')) || []
 
 
 //selectors
@@ -35,6 +35,10 @@ const count = root.querySelector('.todos-count')
 const clear = root.querySelector('.todos-clear')
 
 //functions
+function saveToStorage(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos))
+}
+
 function renderTodos(todos) {
 //<li>
 let todoString = ''
@@ -65,6 +69,7 @@ function addTodo(event){
         }
     ]
     renderTodos(todos)
+    saveToStorage(todos)
     input.value = ''
 
 }
@@ -82,6 +87,7 @@ function updateTodo(event) {
         return todo
     })
     renderTodos(todos)
+    saveToStorage(todos)
 }
 
 function deleteTodo(event){
@@ -94,6 +100,7 @@ function deleteTodo(event){
 //
 todos = todos.filter((todo, index) => index !== id)
 renderTodos(todos)
+saveToStorage(todos)
     }
 }
 
@@ -106,11 +113,13 @@ function clearCompleteTodos(){
         //
         todos = todos.filter(todo => !todo.complete)
         renderTodos(todos)
+        saveToStorage(todos)
     }
 }
 
 //init
 function init() {
+    renderTodos(todos)
 //Add todo
 form.addEventListener('submit', addTodo)
 //update the todo
