@@ -7,7 +7,7 @@ app.innerHTML = `
 <div class="todos-header">
 <h3 class="todos-title">Todo List</h3>
 <div>
-<p>You have <span class="todos-count"></span> Items  </p>
+<p>You have <span class="todos-count">${count ? count : 0}</span> Item(s) </p>
 <button type"button" class="todos-clear" style="display: none;">
 Clear completed
 </button>
@@ -31,11 +31,12 @@ const root = document.querySelector('.todos')
 const list = root.querySelector('.todos-list')
 const form = document.forms.todos
 const input = form.elements.todo
+const count = root.querySelector('.todos-count')
+console.log(count)
 
 //functions
 function renderTodos(todos) {
 //<li>
-
 let todoString = ''
 todos.forEach((todo, index) => {
     todoString += `
@@ -46,6 +47,7 @@ todos.forEach((todo, index) => {
     </li>
     `
 })
+count.innerText = todos.length
 list.innerHTML = todoString
 
 }
