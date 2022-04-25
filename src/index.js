@@ -15,8 +15,26 @@ Which pizza would you like?
 <option value="pepperoni">Pepperoni</option>
 <option value="meaty">Meaty</option>
 <option value="cheesy">Cheesy</option>
-
 </select>
+</label>
+<div>
+What size?
+<label>
+Small
+ <input type="radio" name="size" value="small" checked>
+</label> 
+<label>
+Medium
+ <input type="radio" name="size" value="medium" checked>
+</label>
+<label>
+Large
+ <input type="radio" name="size" value="large" checked>
+</label>
+</div>
+<label>
+Quantity
+<input type=
 </label>
 <button type="submit">
 Submit
@@ -28,20 +46,19 @@ const form = document.forms.order
 
 function handleSubmit(event) {
     event.preventDefault(); 
-    console.log([...new FormData(event.target)])
+    // console.log([...new FormData(event.target)])
+    const formData = new FormData(event.target)
+    // const data = [...formData.entries()]
+    // const asString = data.map(x => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`).join('&')
+    // )
+
+    const asString = new URLSearchParams(formData).toString()
+    console.log(asString)
+
+    //json
+    const asJSON = JSON.stringify(Object.fromEntries(formData))
+    console.log(asJSON)
 }
 
-function handleFormData(event){
-    console.log([...event.formData])
-    console.log([...event.formData.values()])
-    const entries = event.formData.entries()
-
-    for(const entry of entries){
-        console.log(entry)
-    }
-
-
-}
 
 form.addEventListener('submit', handleSubmit)
-form.addEventListener('formdata', handleFormData)
