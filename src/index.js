@@ -39,8 +39,8 @@ function renderTodos(todos) {
 let todoString = ''
 todos.forEach((todo, index) => {
     todoString += `
-    <li dta-id="${index}">
-    <input type="checkbox">
+    <li data-id="${index}"${todo.complete ? ' class="todos-complete"' : '' }>
+    <input type="checkbox"${todo.complete ? ' checked' : ''}>
     <span> ${todo.label}</span>
     <button type="button"></button>
     </li>
@@ -66,10 +66,27 @@ function addTodo(event){
 
 }
 
+function updateTodo(event) {
+    const id = parseInt(event.target.parentNode.getAttribute('data-id'), 10)
+    const complete = event.target.checked;
+    todos = todos.map((todo, index) => {
+        if(index === id) {
+            return {
+                ...todo,
+                complete
+            }
+        }
+        return todo
+    })
+    renderTodos(todos)
+}
+
 //init
 function init() {
 //Add todo
 form.addEventListener('submit', addTodo)
+//update the todo
+list.addEventListener('change', updateTodo)
 }
 init()
 
