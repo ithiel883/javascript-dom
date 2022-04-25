@@ -58,6 +58,14 @@ function handleSubmit(event) {
     //json
     const asJSON = JSON.stringify(Object.fromEntries(formData))
     console.log(asJSON)
+
+    fetch('/fakeapi', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: asJSON
+    })
 }
 
 
