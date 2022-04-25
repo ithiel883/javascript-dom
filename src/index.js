@@ -3,7 +3,7 @@ import "../assets/css/style.css";
 const app = document.getElementById("app");
 
 app.innerHTML = `
-<div class="todos>
+<div class="todos">
 <div class="todos-header">
 <h3 class="todos-title">Todo List</h3>
 <div>
@@ -16,7 +16,7 @@ Clear completed
 <form class="todos-form" name="todos">
 <input type="text" placeholder="what's next ?" name="todo" />
 </form>
-<ul class="todos-list>
+<ul class="todos-list">
 </ul>
 </div>
 
@@ -27,10 +27,29 @@ let todos = []
 
 
 //selectors
+const root = document.querySelector('.todos')
+const list = root.querySelector('.todos-list')
 const form = document.forms.todos
 const input = form.elements.todo
 
 //functions
+function renderTodos(todos) {
+//<li>
+
+let todoString = ''
+todos.forEach((todo, index) => {
+    todoString += `
+    <li dta-id="${index}">
+    <input type="checkbox">
+    <span> ${todo.label}</span>
+    <button type="button"></button>
+    </li>
+    `
+})
+list.innerHTML = todoString
+
+}
+
 function addTodo(event){
     event.preventDefault();
     const label = input.value.trim();
@@ -42,7 +61,7 @@ function addTodo(event){
             complete
         }
     ]
-    console.log(todos)
+    renderTodos(todos)
     input.value = ''
 
 }
