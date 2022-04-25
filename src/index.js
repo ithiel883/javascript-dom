@@ -5,17 +5,19 @@ const app = document.getElementById("app");
 app.innerHTML = `
 <h1>Javascript DOM</h1>
 <form name="example">
-<label>
-Accept Marketing
-<input type="checkbox" name="marketing">
 
-</label>
+<select name="drink">
+<option value="">Select your drink</option>
+<option value="lemonade" selected>Lemondade</option>
+<option value="cola">Cola</option>
+<option value="water">Water</option>
+
+</select>
 </form>
 `;
 
-const form = document.forms.example
-const checkbox = form.elements.marketing
+const form = document.forms.example;
+const select = form.elements.drink
 
-console.dir(checkbox)
+console.log(select.value)
 
-checkbox.select()
