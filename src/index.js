@@ -4,69 +4,25 @@ const app = document.getElementById("app");
 
 app.innerHTML = `
 <h1>Javascript DOM</h1>
-<form name="order">
-<label>
-Your name
-<input type="text" name="fullname">
-</label>
-<label>
-Which pizza would you like?
-<select name="pizza">
-<option value="pepperoni">Pepperoni</option>
-<option value="meaty">Meaty</option>
-<option value="cheesy">Cheesy</option>
-</select>
-</label>
-<div>
-What size?
-<label>
-Small
- <input type="radio" name="size" value="small" checked>
-</label> 
-<label>
-Medium
- <input type="radio" name="size" value="medium" checked>
-</label>
-<label>
-Large
- <input type="radio" name="size" value="large" checked>
-</label>
-</div>
-<label>
-Quantity
-<input type=
-</label>
-<button type="submit">
-Submit
-</button>
+<form name="example">
+        <input type="text" name="myInput" value="Hello" />
 </form>
 `;
 
-const form = document.forms.order
+const form = document.forms.example
+const input = form.myInput
+// input.readOx = true
+console.log(input.value)
 
-function handleSubmit(event) {
-    event.preventDefault(); 
-    // console.log([...new FormData(event.target)])
-    const formData = new FormData(event.target)
-    // const data = [...formData.entries()]
-    // const asString = data.map(x => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`).join('&')
-    // )
+//Events
+input.addEventListener('focus', () => console.log('Focus'))
+input.addEventListener('blur', () => console.log('Blur'))
+input.addEventListener('input', () => console.log('Input'))
+input.addEventListener('change', () => console.log('Change'))
 
-    const asString = new URLSearchParams(formData).toString()
-    console.log(asString)
+//methods
 
-    //json
-    const asJSON = JSON.stringify(Object.fromEntries(formData))
-    console.log(asJSON)
-
-    fetch('/fakeapi', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: asJSON
-    })
-}
+input.focus()
+setTimeout(() => input.blur(), 2500)
 
 
-form.addEventListener('submit', handleSubmit)
