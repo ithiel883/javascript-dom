@@ -5,24 +5,40 @@ const app = document.getElementById("app");
 app.innerHTML = `
 <h1>Javascript DOM</h1>
 <form name="example">
-        <input type="text" name="myInput" value="Hello" />
+<div class="container">
+        <label>
+        blue
+        <input type="radio" name="color" value="blue" checked>
+        </label>
+        <label>
+        Red
+        <input type="radio" name="color" value="red">
+        </label>
+        <label>
+        Green
+        <input type="radio" name="color" value="green">
+        </label>
+        </div>
 </form>
 `;
 
-const form = document.forms.example
-const input = form.myInput
-// input.readOx = true
-console.log(input.value)
 
-//Events
-input.addEventListener('focus', () => console.log('Focus'))
-input.addEventListener('blur', () => console.log('Blur'))
-input.addEventListener('input', () => console.log('Input'))
-input.addEventListener('change', () => console.log('Change'))
 
-//methods
+const form  = document.forms.example
+const radios = [...form.elements.color]
 
-input.focus()
-setTimeout(() => input.blur(), 2500)
+//properies on radio buttons
+radios.forEach(radio => {
+    console.log(radio.value)
+    console.log(radio.checked)
 
+})
+
+const container = form.querySelector('.container')
+container.addEventListener('change', () => {
+    console.log(form.elements.color.value)
+})
+// const checked = radios.find(radio => radio.checked)
+// console.log(checked)
+// console.log(radios)
 
